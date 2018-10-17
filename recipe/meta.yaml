@@ -1,5 +1,4 @@
-{% set version = '0.4-8' %}
-
+{% set version = '0.4-13' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,13 +9,13 @@ package:
 source:
   fn: quantmod_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/quantmod_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/quantmod/quantmod_{{ version }}.tar.gz
-  sha256: 625c6629336b3b53475065478587a2dce08a8ce9146886ad46f19e395214ed49
+    - {{ cran_mirror }}/src/contrib/quantmod_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/quantmod/quantmod_{{ version }}.tar.gz
+  sha256: 60fb13821c9d8d5bea34223b18757f04787f4440cb82946bb9559d6fd26b5499
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 0
   skip: true  # [win32]
   rpaths:
     - lib/R/lib/
@@ -24,23 +23,23 @@ build:
 
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{posix}}zip               # [win]
   host:
     - r-base
     - r-ttr >=0.2
+    - r-curl
     - r-xts >=0.9_0
     - r-zoo
   run:
     - r-base
     - r-ttr >=0.2
+    - r-curl
     - r-xts >=0.9_0
     - r-zoo
 
 test:
   commands:
-    - $R -e "library('quantmod')"  # [not win]
+    - $R -e "library('quantmod')"           # [not win]
     - "\"%R%\" -e \"library('quantmod')\""  # [win]
 
 about:
@@ -48,8 +47,14 @@ about:
   license: GPL-3
   summary: Specify, build, trade, and analyse quantitative financial trading strategies.
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
     - johanneskoester
     - bgruening
+    - daler
+    - jdblischak
+    - cbrueffer
+    - dbast
