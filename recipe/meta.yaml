@@ -1,4 +1,4 @@
-{% set version = '0.4-13' %}
+{% set version = '0.4-15' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,16 +7,15 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: quantmod_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/quantmod_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/quantmod/quantmod_{{ version }}.tar.gz
-  sha256: 60fb13821c9d8d5bea34223b18757f04787f4440cb82946bb9559d6fd26b5499
+  sha256: 7ef2e798d4d8e4d2af0a5b2b9fecebec30568087afbd24bfd923cdeb8b53df53
 
 build:
-  noarch: generic
   merge_build_host: True  # [win]
-  number: 1000
+  number: 0
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
@@ -51,9 +50,24 @@ about:
 
 extra:
   recipe-maintainers:
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+    - conda-forge/r
+
+# Package: quantmod
+# Type: Package
+# Title: Quantitative Financial Modelling Framework
+# Version: 0.4-15
+# Authors@R: c( person(given=c("Jeffrey","A."), family="Ryan", role=c("aut","cph")), person(given=c("Joshua","M."), family="Ulrich", role=c("cre","aut"), email="josh.m.ulrich@gmail.com"), person(given="Wouter", family="Thielen", role="ctb"), person(given="Paul", family="Teetor", role="ctb"), person(given="Steve", family="Bronder", role="ctb") )
+# Depends: R (>= 3.2.0), xts(>= 0.9-0), zoo, TTR(>= 0.2), methods
+# Imports: curl
+# Suggests: DBI,RMySQL,RSQLite,timeSeries,XML,downloader,jsonlite(>= 1.1)
+# Description: Specify, build, trade, and analyse quantitative financial trading strategies.
+# LazyLoad: yes
+# License: GPL-3
+# URL: http://www.quantmod.com https://github.com/joshuaulrich/quantmod
+# BugReports: https://github.com/joshuaulrich/quantmod/issues
+# NeedsCompilation: no
+# Packaged: 2019-06-17 10:38:37 UTC; josh
+# Author: Jeffrey A. Ryan [aut, cph], Joshua M. Ulrich [cre, aut], Wouter Thielen [ctb], Paul Teetor [ctb], Steve Bronder [ctb]
+# Maintainer: Joshua M. Ulrich <josh.m.ulrich@gmail.com>
+# Repository: CRAN
+# Date/Publication: 2019-06-17 13:20:04 UTC
