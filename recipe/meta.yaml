@@ -43,10 +43,11 @@ test:
 
 about:
   home: http://www.quantmod.com https://github.com/joshuaulrich/quantmod
-  license: GPL-3
+  license: GPL-3.0-only
   summary: Specify, build, trade, and analyse quantitative financial trading strategies.
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
