@@ -1,4 +1,4 @@
-{% set version = "0.4.18" %}
+{% set version = "0.4.20" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/quantmod_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/quantmod/quantmod_{{ version }}.tar.gz
-  sha256: aa40448e93a1facf399213ac691784007731e869ad243fe762381ab099cd6c35
+  sha256: f757df41595d885f7927e18f4835bc233d78d2d3ae48fd11c8874d4338c48e94
 
 build:
   merge_build_host: true  # [win]
