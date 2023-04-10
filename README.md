@@ -3,11 +3,13 @@ About r-quantmod-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-quantmod-feedstock/blob/main/LICENSE.txt)
 
-Home: http://www.quantmod.com https://github.com/joshuaulrich/quantmod
+Home: http://www.quantmod.com
 
 Package license: GPL-3.0-only
 
 Summary: Specify, build, trade, and analyse quantitative financial trading strategies.
+
+Development: https://github.com/joshuaulrich/quantmod
 
 Current build status
 ====================
