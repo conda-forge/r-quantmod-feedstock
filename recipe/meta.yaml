@@ -1,4 +1,4 @@
-{% set version = "0.4.28" %}
+{% set version = "0.4.29" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/quantmod_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/quantmod/quantmod_{{ version }}.tar.gz
-  sha256: d1d4215ae0caba96ecf16e5ff8bbef047e88d1b1e60bb3e9e42e7c26b26ed338
+  sha256: ed2a56c96cd3acdb2f4fa27ac9f7177dfb40adaad125bba819c2b26cff636c71
 
 build:
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
